@@ -22,7 +22,7 @@ The project structure separates source code (`src`), unit tests (`tests`), and d
 
 1.  **Clone the repository:**
     ```bash
-    git clone [your-repo-link]
+    git clone https://github.com/tharit-s/data-pipeline-testing-lab.git
     cd data-pipeline-testing-lab
     ```
 
