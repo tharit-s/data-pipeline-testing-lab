@@ -1,0 +1,8 @@
+ID,Project_Name,Budget_USD,Start_Date,Status
+101,Aurora_Migration,45000,2024-03-01,COMPLETE
+102,etl_refactor,22000,2024-05-15,IN PROGRESS
+103,Data_Lake_Setup,,2024-06-01,
+104,API Integration,60000,2024-07-20,complete
+105,Reporting_Dash,18000,Not Available,IN PROGRESS
+106,warehouse upgrade,NaN,2024-09-01,complete
+107,ML_Pipeline,35000,,IN PROGRESS

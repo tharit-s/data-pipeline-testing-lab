@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Data files (exclude all CSVs except the sample input)
+output/*.csv
+input/*.csv
+!input/data_raw.csv
+
+# OS
+.DS_Store
+Thumbs.db
