@@ -96,6 +96,45 @@ class TestDataProcessor(unittest.TestCase):
         bad_data = pd.DataFrame({'ID': [1], 'Name': ['Test']})
         self.assertFalse(check_columns(bad_data))
 
+    def test_no_rows_after_cleaning(self):
+        """Test case where all rows are removed after cleaning."""
+        data = pd.DataFrame({
+            'ID': [1, 2],
+            'Project_Name': ['A', 'B'],
+            'Budget_USD': [None, None],
+            'Start_Date': ['invalid_date1', 'invalid_date2'],
+            'Status': [None, None]
+        })
+        result = clean_and_transform(data)
+        
+        # All rows should be removed
+        self.assertEqual(len(result), 0)
+
+    def test_valid_data(self):
+        """Test case where all rows are remained after cleaning."""
+        data = pd.DataFrame({
+            'ID': [1, 2],
+            'Project_Name': ['A', 'B'],
+            'Budget_USD': [1000, 2000],
+            'Start_Date': ['2024-01-01', '2024-01-02'],
+            'Status': ['COMPLETE', 'PENDING']
+        })
+        result = clean_and_transform(data)
+
+        # All rows should be removed
+        self.assertEqual(len(result), 2)
+        self.assertEqual(result.loc[0, 'id'], 1)
+        self.assertEqual(result.loc[1, 'id'], 2)
+        self.assertEqual(result.loc[0, 'project_name'], 'A')
+        self.assertEqual(result.loc[1, 'project_name'], 'B')
+        self.assertEqual(result.loc[:, "budget_usd"].tolist(), [1000.0, 2000.0])
+        self.assertEqual(result.loc[:, "status"].tolist(), ['COMPLETE', 'PENDING'])
+        self.assertEqual(result.loc[:, "start_date"].tolist(), [
+            pd.to_datetime('2024-01-01'),
+            pd.to_datetime('2024-01-02')
+        ])
+        self.assertEqual(result.loc[:, "project_age_days"].tolist(), [366, 365])
+
 
 if __name__ == '__main__':
     unittest.main()
