@@ -21,6 +21,10 @@ output/*.csv
 input/*.csv
 !input/data_raw.csv
 
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
 # OS
 .DS_Store
 Thumbs.db

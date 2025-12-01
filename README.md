@@ -37,7 +37,13 @@ The project structure separates source code (`src`), unit tests (`tests`), and d
     pip install -r requirements.txt
     ```
 
-4.  **Run the Unit Tests (Recommended First):**
+4.  **Explore the data (Optional):**
+    ```bash
+    jupyter notebook
+    ```
+    Open `notebooks/eda.ipynb` to see data quality analysis and visualizations.
+
+5.  **Run the Unit Tests (Recommended):**
     ```bash
     python -m unittest tests.test_processor
     ```
@@ -47,13 +53,13 @@ The project structure separates source code (`src`), unit tests (`tests`), and d
     python -m unittest tests.test_processor -v
     ```
 
-5.  **Run the Full Pipeline (End-to-End):**
+6.  **Run the Full Pipeline (End-to-End):**
     ```bash
     python src/data_processor.py
     ```
     This will create `output/data_final.csv` with cleaned data.
 
-6.  **Deactivate virtual environment when done:**
+7.  **Deactivate virtual environment when done:**
     ```bash
     deactivate
     ```
@@ -66,6 +72,13 @@ data-pipeline-testing-lab/
 │   └── data_raw.csv         # Sample messy data
 ├── output/
 │   └── .gitkeep             # Output directory placeholder
+├── notebooks/
+│   └── eda.ipynb            # Exploratory data analysis
+├── reports/
+│   ├── budget_distribution.png
+│   ├── missing_data_heatmap.png
+│   ├── status_distribution.png
+│   └── data_quality_summary.csv
 ├── src/
 │   ├── __init__.py          # Package marker
 │   └── data_processor.py    # Core ETL logic
@@ -173,6 +186,8 @@ This project showcases data engineering best practices:
 
 - **Python 3.13+**
 - **Pandas** - Data manipulation and transformation
+- **Jupyter** - Interactive data exploration
+- **Matplotlib & Seaborn** - Data visualization
 - **unittest** - Testing framework
 - **logging** - Observability and debugging
 
